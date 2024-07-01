@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+}
+
+body {
+  /* background:  linear-gradient(90deg, orange, yellow); */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tetris{
+    border: 5px solid purple;
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+}
+.tetris .O{
+    background-color: brown;
+}
+.tetris .L{
+    background-color: green;
+}
+.tetris .J{
+    background-color: blue;
+}
+.tetris .T{
+    background-color: royalblue;
+}
+.tetris .I{
+    background-color: lawngreen;
+}
+
+.tetris div{
+    height: min(4vh, 7vw);
+    width: min(4vh, 7vw);
+    background: lightgrey;
+    box-shadow: 
+        inset 2px 2px 2xp black,
+        inset -2px -2px 2px blue;
+    border: 1px solid gray;
+}
+.score {
+    font-size: 70px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #03097d;
+    margin-left: 50px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    padding: 10px;
+}
