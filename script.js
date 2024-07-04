@@ -9,8 +9,43 @@ let isGameOver = false;
 let overlay = document.querySelector('.overlay');
 let btnRestart = document.querySelector('.btn-restart')
 let scoreElement = document.querySelector('.score')
-
+const arrowMobile = document.querySelector('.arrow-mobile')
+console.log(arrowMobile)
 const TETROMINO_NAMES = ["O", "L", "J", "I", "T", "S", "P", "K"];
+//==== 
+// Отримання інформації про користувача
+const userAgent = navigator.userAgent;
+const platform = navigator.platform;
+const appVersion = navigator.appVersion;
+const appName = navigator.appName;
+const vendor = navigator.vendor;
+
+// Виведення інформації в консоль
+console.log('User Agent:', userAgent);
+console.log('Platform:', platform);
+console.log('App Version:', appVersion);
+console.log('App Name:', appName);
+console.log('Vendor:', vendor);
+
+function getDeviceType() {
+    const ua = navigator.userAgent;
+    
+    if (/mobile/i.test(ua)) {
+        return 'Mobile';
+    } else if (/tablet/i.test(ua)) {
+        return 'Tablet';
+    } else {
+        return 'Desktop';
+    }
+}
+
+// Використання функції для визначення типу пристрою
+const deviceType = getDeviceType();
+if(deviceType == 'Mobile'){
+ document.querySelector('.arrow-mobile').style.display = 'flex'
+}
+console.log('Device Type:', deviceType);
+//=====
 
 const TETROMINOES = {
   O: [
@@ -112,25 +147,31 @@ btnRestart.addEventListener('click', ()=>{
     init();
 })
 
+arrowMobile.addEventListener('click', (e) =>{
+    console.log(e.target)
+    onKeyDown(e.target)
+})
+
 function onKeyDown(event) {
-//   console.log(event);
-  if (event.key == "Escape") {
+  console.log(event.textContent);
+
+  if (event.key == "Escape" || event.textContent == "Pause") {
     togglePaused();
   }
 if(!isPaused){
-    if (event.key == "Enter") {
-        dropTetraminoDown();
-      }
-    if (event.key == "ArrowLeft") {
+    // if (event.key == "Enter") {
+    //     dropTetraminoDown();
+    //   }
+    if (event.key == "ArrowLeft" || event.textContent == "Arrow left") {
         movetetrominoLeft();
       }
-      if (event.key == "ArrowRight") {
+      if (event.key == "ArrowRight"|| event.textContent == "Arrow right") {
         movetetrominoRight();
       }
-      if (event.key == "ArrowDown") {
+      if (event.key == "ArrowDown"|| event.textContent == "Arrow down") {
         movetetrominoDown();
       }
-      if (event.key == "ArrowUp") {
+      if (event.key == "ArrowUp"|| event.textContent == "Arrow up") {
         rotate();
       }
       
@@ -154,7 +195,6 @@ function dropTetraminoDown(){
 }
 
 function togglePaused(){
-    
     isPaused = !isPaused;
     if(isPaused){
         stopLoop()
