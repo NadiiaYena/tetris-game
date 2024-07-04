@@ -153,9 +153,9 @@ arrowMobile.addEventListener('click', (e) =>{
 })
 
 function onKeyDown(event) {
-  console.log(event.textContent);
+  console.log(event)
 
-  if (event.key == "Escape" || event.textContent == "Pause") {
+  if (event.key == ' ' || event.textContent == "Pause") {
     togglePaused();
   }
 if(!isPaused){
