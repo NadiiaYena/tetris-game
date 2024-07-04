@@ -3,11 +3,14 @@
 }
 
 body {
-  /* background:  linear-gradient(90deg, orange, yellow); */
+  background:  linear-gradient(90deg, rgb(247, 222, 178), yellow);
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 50px;
 }
 
 .tetris{
@@ -54,7 +57,7 @@ body {
     font-size: 70px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #03097d;
-    margin-left: 50px;
+    /* margin-left: 50px; */
     border: 1px solid blue;
     border-radius: 10px;
     padding: 10px;
@@ -64,7 +67,7 @@ body {
 }
 
 .overlay{
- margin-left: 50px;
+ /* margin-left: 50px; */
  position: fixed;
  top: 0;
  left: 0;
@@ -93,3 +96,47 @@ body {
     cursor: pointer;
     height: fit-content;
 }
+
+.rules{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.rules-item{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
+.rules-item span{
+    font-size: 22px;
+    font-weight: bold;
+    color:rgb(241, 7, 105);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.rules-item p{
+    font-size: 20px;
+    font-weight: 500;
+    color:rgb(7, 42, 241);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+@media screen and (max-width:756px){
+    body{
+        flex-direction: column-reverse;
+        overflow: scroll;
+        height: 100%;
+        gap: 20px;
+        padding: 10px;
+        align-items: center;
+
+    }
+
+}
+
